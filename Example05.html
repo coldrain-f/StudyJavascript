@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    
+    <script>
+        $(document).ready(function() {
+            
+
+            //body태그 안쪽 맨 뒤에 추가한다.
+            $("<h1></h1>").html("Hello Append").appendTo("body");
+
+            //body 태그 안쪽 맨 앞에 추가한다.
+            $("<h1></h1>").html("Hello prepend").prependTo("body");
+
+            //body태그 뒤에 추가한다.
+            //<body>
+            //<h1>Hello Append</h1>
+            $("<h1></h1>").html("Hello After").insertAfter("body");
+
+            //body태그 앞에 추가한다.
+            //<h1>Hello Prepend</h1>
+            //<body>
+            $("<h1></h1>").html("Hello Before").insertBefore("body");
+            
+
+        })
+
+    </script>
+
+
+</body>
+</html>
