@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+<body>
+    
+    <h2></h2>
+    <h2></h2>
+    <h2></h2>
+
+    <script>
+        $(document).ready(function() {
+            //태그에 내용 삽입하기 ( setter html() 메서드는 매개변수가 1개다. )
+            //글자뿐 아니라 html 태그도 삽입할 수 있다.
+            $("h2").html("Hello World!")
+
+            //태그의 내용을 가져오기 ( getter )
+            var html = $("h2").html()
+            console.log(html);
+
+            //태그에 내용 삽입하기 함수 setter
+            $("h2").html(function(index) {
+                return "Hello World! " + ( index + 1 )
+            })
+
+            //태그에 내용 삽입하기 ( setter text() html 태그는 삽입 불가하다. )
+            $("h2").text(function(index) {
+                return "Hello World! Text " + ( index + 1 )
+            })
+
+            //태그의 내용을 가져오기 ( getter )
+            //text() 메서드는 선택된 모든 태그의 값을 다 가져온다. ( 얘만 예외 )
+            console.log($("h2").text())
+        })
+
+    </script>
+</body>
+</html>

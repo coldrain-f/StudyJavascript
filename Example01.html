@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <h1>Example 1</h1>
+    <h2>Example 2</h2>
+
+    <h3>Example 3 first</h3>
+    <h3>Example 3 second</h3>
+    <h3>Example 3 third</h3>
+    
+    <script>
+        $(document).ready(function(){
+            
+            //h1 태그를 선택해서 색상을 빨강색으로 변경한다. ( setter, 매개변수 2개 )
+            $("h1").css("color", "red");
+
+            //h1 태그를 선택해서 색상을 가지고 온다. ( getter, 매갭변수 1개 )
+            var h1Color = $("h1").css("color");
+            console.log(h1Color);
+            
+            //여러 속성을 동시에 변경할 수도 있다.
+            $("h1").css({
+                "color": "blue",
+                "background-color": "orange",
+                "text-align": "center"
+            });
+
+            //함수로 값을 변경할 수도 있다.
+            $("h2").css("color", function() {
+                return "red";
+            });
+
+
+            //h3가 여러 개 라면 index를 반환한다.
+            $("h3").css("color", function(index) {
+                if (index == 0) {
+                    return "orange";
+                } else if(index == 1) {
+                    return "yellow";
+                } else if(index == 2) {
+                    return "green";
+                }
+            });
+
+
+
+        });
+
+    </script>
+
+</body>
+</html>

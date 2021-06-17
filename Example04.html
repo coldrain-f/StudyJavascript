@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .red-text {
+            color: red;
+        }
+
+        .header {
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>Hello World!</h1>
+    
+    <script>
+        $(document).ready(function() {
+            //태그에 CSS 클래스 추가
+            $("h1").addClass("red-text")
+                   .addClass("header")
+
+            //태그에 CSS 클래스 삭제
+            $("h1").removeClass("red-text")
+
+            //태그에 CSS 클래스가 있는지 확인
+            console.log($("h1").hasClass("red-text")) //없으므로 false
+            console.log($("h1").hasClass("header")) // 있으므로 true
+
+            //속성 제거 ( removeAttr() 메서드 사용해서 태그의 속성을 제거할 수 있다. )
+            $("h1").removeAttr("class")
+
+            //선택된 태그 모두 제거 ( remove() 메서드 사용 )
+            $("h1").remove()
+        })
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <img src="" alt="">
+    <img src="" alt="">
+    <img src="" alt="">
+
+    <script>
+        $(document).ready(function() {
+            
+            //img의 src 속성을 변경한다. ( attr() setter 메서드 사용  )
+            $("img").attr("src", "http://placehold.it/100x100");
+
+            //img의 src 속성의 값을 가지고 온다. ( attr() getter 메서드 사용 )
+            //img가 여러 개면 첫 번째를 선택해서 가져온다.
+            var attr = $("img").attr("src");
+            console.log(attr);
+
+            //img의 src 속성을 동시에 여러 개를 변경한다.
+            $("img").attr({
+                "src": "http://placehold.it/100x100",
+                "alt": "Example Image" 
+            });
+
+            //함수로도 값을 변경할 수 있다.
+            $("img").attr({
+                "src": function(index) {
+                    return "http://placehold.it/100x" + ( (index + 1) * 100 );
+                },
+                "alt": "Example Image"
+            });
+        });
+
+    </script>
+    
+</body>
+</html>
