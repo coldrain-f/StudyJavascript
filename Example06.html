@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    
+    <a href="http://hanbit.co.kr">한빛미디어</a>
+
+    <script>
+        $("a").click(function(event) {
+            //링크 이동 이벤트를 정지시킨다. ( 태그의 기본 이벤트 제거 )
+            event.preventDefault()
+        })
+
+        $("body").click(function() {
+            //body태그가 a태그 뒤에 있어서 a태그를 클릭하면
+            //body 이벤트도 동시에 발동한다.
+            $(this).css("background-color", "orange")
+
+            //이를 방지하기 위해서 아래 메서드를 사용한다.
+            event.stopPropagation()
+
+            // event.preventdefault()와
+            // event.stopPropagation() 을 동시에 사용하려면 
+            // return false를 입력해 주면 된다.
+        })
+    </script>
+
+</body>
+</html>
