@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", () =>{
+            console.log("문서가 로딩되었습니다...")
+
+            //기명 즉시 실행 함수는
+            //함수를 정의하자마자 바로 호출하는 함수이다.  ( 반드시 변수나 상수에 담아야 된다. 에러남 )
+            const func1 = (function func1() {
+                console.log("기명 즉시 실행 함수")
+            })()
+
+            const func2 = (function func2(value) {
+                console.log("기명 즉시 실행 함수 매개변수 사용")
+                console.log(`값: ${value}`)
+            })(10)
+
+            
+            //익명 즉시 실행 함수 ( 이것도 변수나 상수에 담아야 한다. )
+            const func3 = (function() {
+                console.log("익명 즉시 실행 함수")
+            })()
+
+            const func4 = (function(value) {
+                console.log("익명 즉시 실행 함수 매개변수 사용")
+                console.log(`값: ${value}`)
+            })(20)
+
+            //즉시 실행 함수를 변수에 할당하면 함수가 담기는 것이 아닌 return 값만 담는다.
+            const func5 = (function() {
+                return {
+                    mno: 1,
+                    name: "admin"
+                }
+            })()
+            console.log(func5) // return 값이 저장되어 있다.
+            let member = func5 
+            console.log(member)
+
+            //즉시 실행 함수로 모듈패턴 구성하기
+            const func6 = (function() {
+
+                function add() {
+                    console.log("call add method")
+                }
+
+                return { //객체가 만들어지고 add메서드를 호출할 수 있게 된다.
+                    add: add
+                }
+            })()
+
+            func6.add()
+
+            //callback 함수란 나중에 호출되는 함수이다.
+            //callback 함수 던지기 방법 1
+            function callback(value) {
+                //alert(`callback value: ${value}`)
+                console.log(`callback value: ${value}`)
+            }
+
+            const func7 = (function() {
+
+                function add(callback) { 
+                    if (callback) { //2. 넘겨받은 callback(30) 함수가 있다면
+                        callback() //3. callback(30)을 호출한다.
+                    }
+                }
+
+                return {
+                    add: add
+                }
+            })()
+
+            func7.add(callback(20)) //1. add 메서드에 callback(30) 함수를 던져준다.
+
+            //callback 함수 던지기 방법 2
+            const func8 = (function() {
+
+                function add(callback) {
+                    if (callback) {
+                        callback(20) //익명 함수에 20이라는 값을 넘겨서 호출한다.
+                    }
+                }
+
+                return {
+                    add: add
+                }
+            })()
+
+            func8.add(function(value) { //이런식으로 익명 콜백 함수를 던져줄 수도 있다.
+                alert(`value: ${value}`)
+            })
+
+
+        })
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
